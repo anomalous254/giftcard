@@ -1,113 +1,64 @@
-@import './_variables.scss';
+.giftcard-editor {
+  padding: 2em;
+  border: 2px solid #26c7ed;
+  border-radius: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 
-.gift-card-editor {
-  h2 {
-    color: $primary-color;
-    font-family: $font-family;
-  }
-
-  .editor-preview-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .editor-section {
-    flex: 1;
-
-    input[type="file"] {
-      margin-bottom: 10px;
-    }
-
-    textarea {
-      width: 100%;
-      height: 100px;
-      margin: 10px 0;
-      font-family: $font-family;
-      color: $font-color;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    .controls {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-
-      label {
-        font-family: $font-family;
-        color: $font-color;
-
-        input,
-        select {
-          margin-left: 10px;
-        }
-      }
-    }
-
-    .preview-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-family: $font-family;
-      background-color: $primary-color;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: darken($primary-color, 10%);
-      }
-    }
-  }
-
-  .preview-section {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid $primary-color;
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
     border-radius: 8px;
-    padding: 20px;
-    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: #26c7ed;
+      outline: none;
+    }
   }
 
-  .preview-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  textarea {
+    resize: none;
+    height: 100px;
   }
 
-  .purchase-button {
-    padding: 10px 20px;
-    font-family: $font-family;
-    background-color: $secondary-color;
-    color: white;
+  input[type="file"] {
     border: none;
-    border-radius: 4px;
+    padding: 0;
     cursor: pointer;
+  }
+
+  input[type="color"] {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 
     &:hover {
-      background-color: darken($secondary-color, 10%);
+      transform: scale(1.1);
     }
   }
-}
 
-.gift-card-preview {
-  text-align: center;
+  button {
+    padding: 10px 20px;
+    background-color: #26c7ed;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 
-  img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    border: 2px solid $primary-color;
-    border-radius: 8px;
-  }
-
-  p {
-    margin: 0;
+    &:hover {
+      background-color: #1a9dbb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
   }
 }

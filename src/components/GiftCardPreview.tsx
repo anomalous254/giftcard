@@ -1,29 +1,27 @@
 import React from "react";
-import "../styles/GiftCardPreview.scss";
+import '../styles/GiftCardPreview.scss'
+
+type GiftCard = {
+  id: string;
+  title: string;
+  message: string;
+  image: string;
+  color: string;
+};
 
 interface GiftCardPreviewProps {
-  photo: File | null;
-  text: string;
-  font: string;
-  color: string;
-  size: number;
+  giftCard: GiftCard;
 }
 
-const GiftCardPreview: React.FC<GiftCardPreviewProps> = ({
-  photo,
-  text,
-  font,
-  color,
-  size,
-}) => {
-  const photoUrl = photo ? URL.createObjectURL(photo) : "";
-
+const GiftCardPreview: React.FC<GiftCardPreviewProps> = ({ giftCard }) => {
   return (
-    <div className="gift-card-preview">
-      {photo && <img src={photoUrl} alt="Gift Card" />}
-      <p style={{ fontFamily: font, color: color, fontSize: `${size}px` }}>
-        {text}
-      </p>
+    <div
+      className="giftcard-preview"
+      style={{ backgroundColor: giftCard.color }}
+    >
+      <h2>{giftCard.title}</h2>
+      <p>{giftCard.message}</p>
+      {giftCard.image && <img src={giftCard.image} alt="Gift Card" />}
     </div>
   );
 };

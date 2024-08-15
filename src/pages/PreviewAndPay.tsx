@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import GiftCardPreview from "../components/GiftCardPreview";
-import Payment from "../components/Payment";
+import Payment from "../components/GiftCardBook";
 
 const PreviewAndPay: React.FC = () => {
   const location = useLocation();
