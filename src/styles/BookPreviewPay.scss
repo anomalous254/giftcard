@@ -10,7 +10,9 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   max-width: 500px;
   margin: 0 auto;
-
+  position: relative;
+  overflow: hidden;
+  
   .book {
     position: relative;
     width: 100%;
@@ -20,19 +22,27 @@
   }
 
   .page {
+    position: absolute;
     width: 100%;
     height: 100%;
-    position: absolute;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transition: transform 0.8s ease;
+    transition: transform 0.8s ease, opacity 0.8s ease;
     transform-origin: left;
     opacity: 0;
     pointer-events: none;
-
+    
     &.visible {
       opacity: 1;
       pointer-events: all;
+    }
+
+    &.flip-left {
+      transform: rotateY(-180deg);
+    }
+
+    &.flip-right {
+      transform: rotateY(180deg);
     }
   }
 
@@ -46,6 +56,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    background-color: white;
 
     img {
       max-width: 100%;
@@ -58,6 +69,7 @@
   .controls {
     display: flex;
     gap: 20px;
+    margin-top: 20px;
 
     button {
       padding: 10px 20px;

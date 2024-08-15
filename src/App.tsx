@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  NavLink,
+} from "react-router-dom";
 import BookPreviewPay from "./components/BookPreviewPay";
 import GiftCardEditor from "./components/GiftCardEditor";
-
 
 type GiftCard = {
   id: string;
@@ -28,8 +32,10 @@ const App: React.FC = () => {
     <Router>
       <div className="app-container">
         <nav>
-          <Link to="/">Create Gift Card</Link>
-          <Link to="/preview-pay">Preview & Pay</Link>
+          <NavLink to="/" end>
+            Create Gift Card
+          </NavLink>
+          <NavLink to="/preview-pay">Preview & Pay</NavLink>
         </nav>
 
         <Routes>
